@@ -3,7 +3,6 @@ import Particles from "react-tsparticles";
 import { loadFull } from "tsparticles";
 
 function Particle() {
-
   const particlesInit = async (main) => {
     await loadFull(main);
   };
@@ -12,48 +11,59 @@ function Particle() {
     <Particles
       id="tsparticles"
       init={particlesInit}
-      params={{
-        particles: {
-          number: {
-            value: 160,
-            density: {
-              enable: true,
-              value_area: 1500,
-            },
-          },
-          line_linked: {
-            enable: false,
-            opacity: 0.03,
-          },
-          move: {
-            direction: "right",
-            speed: 0.05,
-          },
-          size: {
-            value: 1,
-          },
-          opacity: {
-            anim: {
-              enable: true,
-              speed: 1,
-              opacity_min: 0.05,
-            },
+      options={{
+        background: {
+          color: {
+            value: "transparent", // Keeps your CSS gradient background
           },
         },
+        fpsLimit: 120,
         interactivity: {
           events: {
-            onclick: {
-              enable: true,
-              mode: "push",
-            },
+            onClick: { enable: true, mode: "push" },
+            onHover: { enable: true, mode: "repulse" },
+            resize: true,
           },
           modes: {
-            push: {
-              particles_nb: 1,
-            },
+            push: { quantity: 4 },
+            repulse: { distance: 200, duration: 0.4 },
           },
         },
-        retina_detect: true,
+        particles: {
+          color: { value: "#ffffff" },
+          links: {
+            color: "#ffffff",
+            distance: 150,
+            enable: false, // Turn off lines for a "Star" look
+            opacity: 0.5,
+            width: 1,
+          },
+          move: {
+            direction: "none",
+            enable: true,
+            outModes: { default: "out" },
+            random: true,
+            speed: 0.5, // Slow movement like stars
+            straight: false,
+          },
+          number: {
+            density: { enable: true, area: 800 },
+            value: 160, // More stars
+          },
+          opacity: {
+            value: { min: 0.1, max: 0.8 }, // Twinkling effect
+            animation: {
+              enable: true,
+              speed: 1,
+              sync: false,
+            },
+          },
+          shape: { type: "circle" },
+          size: {
+            value: { min: 1, max: 3 }, // Different sized stars
+          },
+        },
+        detectRetina: true,
       }}
     />
   );
