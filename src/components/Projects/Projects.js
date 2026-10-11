@@ -20,10 +20,10 @@ function Projects() {
             <ProjectCard
               imgPath={projectImg}
               isBlog={false}
-              title="Medical4me.com"
+              title="medical4me.org"
               description="A healthcare platform where I manage the web development, SEO, and digital strategy. Built with WordPress, focusing on user experience and medical resource accessibility."
               ghLink="#"
-              demoLink="https://medical4me.com"
+              demoLink="https://medical4me.org"
             />
           </Col>
         </Row>
